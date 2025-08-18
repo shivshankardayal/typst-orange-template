@@ -69,7 +69,7 @@
       let supplement_part = supplement-part-state.at(here())
       if part-style == 0 [
         #set par(justify: false)
-        #place(block(width:100%, height:100%, outset: (x: 3cm, bottom: 2.5cm, top: 3cm), fill: main-color.lighten(70%)))
+        #place(block(width:100%, height:100%, outset: (x: 3cm, bottom: 2.5cm, top: 3cm), fill: white))
         #place(top+right, text(fill: black, size: large-text, weight: "bold", box(width: 60%, part-state.get())))
         #place(top+left, text(fill: main-color, size: huge-text, weight: "bold", part-counter.display("I")))
       ] else if part-style == 1 [
@@ -81,19 +81,20 @@
           #move(dx: -4pt, block(text(fill: main-color, size: 6em, weight: "bold", part-state.get())))
         ]
       ]
-      align(bottom+right, my-outline-small(title, appendix-state, part-state, part-location,part-change,part-counter, main-color, textSize1: outline-part, textSize2: outline-heading1, textSize3: outline-heading2, textSize4: outline-heading3))
-    } 
+      //align(bottom+right, my-outline-small(title, appendix-state, part-state, part-location,part-change,part-counter, main-color, textSize1: outline-part, textSize2: outline-heading1, textSize3: outline-heading2, textSize4: outline-heading3))
+    }
   ]
 }
 
-#let chapter(title, image:none, l: none) = {
+#let chapter(title, image:none, l: none, numbering: none) = {
   heading-image.update(x =>
     image
   )
+    set text(fill: rgb(0, 96, 150))
   if l != none [
     #heading(level: 1, title) #label(l)
   ] else [
-    #heading(level: 1, title) 
+    #heading(level: 1, title)
   ]
 }
 
@@ -104,6 +105,7 @@
 }
 
 #let make-index(title: none) = {
+    set text(fill: rgb(0, 96, 150))
   make-index-int(title:title, main-color-state: main-color-state)
 }
 
@@ -153,8 +155,8 @@
     inset: 0.65em,
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
-    titlefmt: x => text(weight: "bold", fill: main-color, x), 
-    fill: black.lighten(95%), 
+    titlefmt: x => text(weight: "bold", fill: main-color, x),
+    fill: black.lighten(95%),
     base_level: 1)(name:name, body)
   }
 }
@@ -169,7 +171,7 @@
     inset: (x: 0.65em),
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
-    titlefmt: x => text(weight: "bold", x), 
+    titlefmt: x => text(weight: "bold", x),
     base_level: 1)(name:name, body)
   }
 }
@@ -185,7 +187,7 @@
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
     titlefmt: x => text(weight: "bold", x),
-    fill: black.lighten(95%), 
+    fill: black.lighten(95%),
     base_level: 1)(name:name, body)
   }
 }
@@ -216,7 +218,7 @@
     inset: 0em,
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
-    titlefmt: x => text(weight: "bold", x), 
+    titlefmt: x => text(weight: "bold", x),
     base_level: 1)(name:name, body)
   }
 }
@@ -232,7 +234,7 @@
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
     titlefmt: x => text(fill: main-color, weight: "bold", x),
-    fill: main-color.lighten(90%), 
+    fill: main-color.lighten(90%),
     base_level: 1)(name:name, body)
   }
 }
@@ -247,7 +249,7 @@
     inset: 0em,
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
-    titlefmt: x => text(weight: "bold", x), 
+    titlefmt: x => text(weight: "bold", x),
     base_level: 1)(name:name, body)
   }
 }
@@ -262,7 +264,7 @@
     inset: 0em,
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
-    titlefmt: x => text(fill: main-color, weight: "bold", x), 
+    titlefmt: x => text(fill: main-color, weight: "bold", x),
     base_level: 1)(name:name, body)
   }
 }
@@ -277,7 +279,7 @@
     inset: 0em,
     namefmt: x => [*--- #x.*],
     separator: h(0.2em),
-    titlefmt: x => [■ #text(weight: "bold", x)], 
+    titlefmt: x => [■ #text(weight: "bold", x)],
     base_level: 1)(name:name, body)
   }
 }
@@ -299,7 +301,7 @@
   }
 }
 
-#let book(title: "", subtitle: "", date: "", author: (), paper-size: "a4", logo: none, cover: none, image-index:none, body, main-color: blue, copyright: [], lang: "en", list-of-figure-title: none, list-of-table-title: none, supplement-chapter: "Chapter", supplement-part: "Part", font-size: 10pt, part-style: 0, lowercase-references: false) = {
+#let book(title: "", subtitle: "", date: "", author: (), paper-size: "iso-b5", logo: none, cover: none, image-index:none, body, main-color: blue, copyright: [], dedication: [], lang: "en", list-of-figure-title: none, list-of-table-title: none, supplement-chapter: "Chapter", supplement-part: "Part", font-size: 9pt, part-style: 0, lowercase-references: false) = {
   set document(author: author, title: title)
   set text(size: font-size, lang: lang)
   set par(leading: 0.5em)
@@ -308,7 +310,7 @@
 
   set ref(supplement: (it)=>{lower(it.supplement)}) if lowercase-references
 
-  
+
   set math.equation(numbering: num =>
     numbering("(1.1)", counter(heading).get().first(), num)
   )
@@ -347,7 +349,7 @@
       if all.any(it => it.location().page() == page_number) or part_change {
         return
       }
-      let appendix = appendix-state.at(here())      
+      let appendix = appendix-state.at(here())
       if odd_page {
         let before = query(selector(heading.where(level: 2)).before(here()))
         let counterInt = counter(heading).at(here())
@@ -419,21 +421,8 @@
           v(8.4cm)
       }
       else{
-        move(dx: 3cm, dy: -0.5cm, align(right + top, block(
-            width: 100% + 3cm,
-            stroke: (
-                right: none,
-                rest: 2pt + main-color,
-            ),
-            inset: (left:2em, rest: 1.6em),
-            fill: white,
-            radius: (
-                right: 0pt,
-                left: 10pt,
-            ),
-            align(left, text(size: title1, it))
-          )))
-        v(1.5cm, weak: true)
+            align(right, text(size: title1, it))
+            v(0.5cm)
       }
       }
       part-change.update(x =>
@@ -470,7 +459,7 @@
     }
     else {
       it
-    } 
+    }
   }
 
   set underline(offset: 3pt)
@@ -491,16 +480,23 @@
         set image(width: 3cm)
         place(top + center, pad(top:1cm, logo))
     }
-    #align(center + horizon, block(width: 100%, fill: main-color.lighten(70%), height: 7.5cm, pad(x:2cm, y:1cm)[
-      #par(leading: 0.4em)[
-        #text(size: title-main-1, weight: "black", title)
-      ]
-      #v(1cm, weak: true)
-      #text(size: title-main-2, subtitle)
-      #v(1cm, weak: true)
-      #text(size: title-main-3, weight: "bold", author)
-    ]))
+    //#align(center + horizon, block(width: 100%, fill: main-color.lighten(70%), height: 7.5cm, pad(x:2cm, y:1cm)[
+    //  #par(leading: 0.4em)[
+    //    #text(size: title-main-1, weight: "black", title)
+    //  ]
+    //  #v(1cm, weak: true)
+    //  #text(size: title-main-2, subtitle)
+    //  #v(1cm, weak: true)
+    //  #text(size: title-main-3, weight: "bold", author)
+    //]))
   ]
+  if (dedication!=none){
+    set text(size: 10pt, style: "italic")
+    set align(center)
+    v(2cm)
+    align(top, dedication)
+  }
+  pagebreak()
   if (copyright!=none){
     set text(size: 10pt)
     show link: it => [
@@ -510,17 +506,19 @@
     set par(spacing: 2em)
     align(bottom, copyright)
   }
-  
+
+
   heading-image.update(x =>
     image-index
   )
 
+set page(numbering: "i")
+counter(page).update(1)
   my-outline(appendix-state, appendix-state-hide-parent, part-state, part-location,part-change,part-counter, main-color, textSize1: outline-part, textSize2: outline-heading1, textSize3: outline-heading2, textSize4: outline-heading3)
 
   my-outline-sec(list-of-figure-title, figure.where(kind: image), outline-heading3)
 
   my-outline-sec(list-of-table-title, figure.where(kind: table), outline-heading3)
-
 
   // Main body.
   set par(
@@ -534,4 +532,3 @@
   body
 
 }
-
