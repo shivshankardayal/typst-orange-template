@@ -1,9 +1,9 @@
 #import "lib.typ": *
 
-#set text(font: "TeX Gyre Pagella")
+#set text(font: "Liberation Serif")
 //#set text(font: "TeX Gyre Pagella")
 //#set text(font: "Lato")
-#show math.equation: set text(font: "TeX Gyre Pagella Math")
+#show math.equation: set text(font: "XITS Math")
 //#show math.equation: set text(font: "Lato Math")
 //#show raw: set text(font: "Fira Code")
 
@@ -53,8 +53,8 @@ stroke: (left: 4pt + green),
 #chapter("Preface", l: "Preface")
 This is preface.
 
-#set page(numbering: "1")
-#counter(page).update(1)
+//#set page(numbering: "1")
+//#counter(page).update(1)
 #set heading(numbering: "1.1.1")
 
 #part("Part One Title")

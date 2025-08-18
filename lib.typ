@@ -90,7 +90,7 @@
   heading-image.update(x =>
     image
   )
-    set text(fill: rgb(0, 96, 150))
+
   if l != none [
     #heading(level: 1, title) #label(l)
   ] else [
@@ -444,11 +444,11 @@
       else {
         size= title4
         space = 0.7em
-        color = black
+        //color = black
       }
       set text(size: size)
       let number = if it.numbering != none {
-        set text(fill: main-color) if it.level < 4
+        set text(fill: main-color) if it.level < 7
         let num = counter(heading).display(it.numbering)
         let width = measure(num).width
         let gap = 7mm
@@ -490,6 +490,7 @@
     //  #text(size: title-main-3, weight: "bold", author)
     //]))
   ]
+  pagebreak()
   if (dedication!=none){
     set text(size: 10pt, style: "italic")
     set align(center)
@@ -512,8 +513,8 @@
     image-index
   )
 
-set page(numbering: "i")
-counter(page).update(1)
+//set page(numbering: "i")
+//counter(page).update(1)
   my-outline(appendix-state, appendix-state-hide-parent, part-state, part-location,part-change,part-counter, main-color, textSize1: outline-part, textSize2: outline-heading1, textSize3: outline-heading2, textSize4: outline-heading3)
 
   my-outline-sec(list-of-figure-title, figure.where(kind: image), outline-heading3)
