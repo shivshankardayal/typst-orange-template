@@ -67,6 +67,7 @@
       let main-color = main-color-state.at(here())
       let part-style = part-style-state.at(here())
       let supplement_part = supplement-part-state.at(here())
+      set text(font: "Roboto")
       if part-style == 0 [
         #set par(justify: false)
         #place(block(width:100%, height:100%, outset: (x: 3cm, bottom: 2.5cm, top: 3cm), fill: white))
@@ -91,6 +92,7 @@
     image
   )
 
+  set text(font: "Roboto")
   if l != none [
     #heading(level: 1, title) #label(l)
   ] else [
@@ -392,7 +394,7 @@
   show heading.where(level: 1): set heading(supplement: supplement-chapter)
 
   show heading: it => {
-    set text(size: font-size)
+    set text(size: font-size, font: "Roboto")
     if it.level == 1 {
       pagebreak(to: "odd")
       //set par(justify: false)
@@ -411,7 +413,7 @@
                 rest: 2pt + main-color,
             ),
             inset: (left:2em, rest: 1.6em),
-            fill: rgb("#FFFFFFAA"),
+            fill: rgb("#FFFFAA"),
             radius: (
                 right: 0pt,
                 left: 10pt,
@@ -421,7 +423,7 @@
           v(8.4cm)
       }
       else{
-            align(right, text(size: title1, it))
+            align(right, text(size: title1, fill: main-color, it))
             v(0.5cm)
       }
       }
@@ -429,7 +431,7 @@
         false
       )
     }
-    else if it.level == 2 or it.level == 3 or it.level == 4 {
+    else if it.level == 2 or it.level == 3 or it.level == 4 or it.level == 5{
       let size
       let space
       let color = main-color
@@ -440,6 +442,10 @@
       else if it.level == 3 {
         size= title3
         space = 0.9em
+      }
+      else if it.level == 5 {
+        size = title4
+        space = 0.7em
       }
       else {
         size= title4

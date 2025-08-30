@@ -1,9 +1,9 @@
 #import "lib.typ": *
 
-#set text(font: "Liberation Serif")
+//#set text(font: "")
 //#set text(font: "TeX Gyre Pagella")
 //#set text(font: "Lato")
-#show math.equation: set text(font: "XITS Math")
+#show math.equation: set text(font: "STIX Two Math")
 //#show math.equation: set text(font: "Lato Math")
 //#show raw: set text(font: "Fira Code")
 
@@ -286,7 +286,7 @@ Define a word to improve a students' vocabulary.
   Definition of word.
 ]
 
-#chapter("Presenting Information and Results with a Long Chapter Title", image: image("./orange3.jpg"))
+#chapter("Presenting Information and Results with a Long Chapter Title")//, image: image("./orange3.jpg"))
 == Table
 #index("Table")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet
@@ -325,12 +325,12 @@ Sed dictum nisl non aliquet porttitor. Etiam vulputate arcu dignissim, finibus s
 Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus
 tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
 
-#figure(
-  image("creodocs_logo.svg", width: 50%),
-  caption: [Figure caption.],
-) <figure>
+//#figure(
+//  image("creodocs_logo.svg", width: 50%),
+//  caption: [Figure caption.],
+//) <figure>
 
-Referencing @figure in-text using its label and referencing @figure1 in-text using its label.
+//Referencing @figure in-text using its label and referencing @figure1 in-text using its label.
 
 #figure(
   placement: top,
@@ -352,11 +352,11 @@ Referencing @figure in-text using its label and referencing @figure1 in-text usi
   caption: [Floating table.],
 ) <table1>
 
-#figure(
-  placement: bottom,
-  image("creodocs_logo.svg", width: 100%),
-  caption: [Floating figure.],
-) <figure1>
+//#figure(
+//  placement: bottom,
+//  image("creodocs_logo.svg", width: 100%),
+//  caption: [Floating figure.],
+//) <figure1>
 
 #my-bibliography( bibliography("sample.bib"))
 
@@ -364,12 +364,12 @@ Referencing @figure in-text using its label and referencing @figure1 in-text usi
 
 #show: appendices.with("Appendices", hide-parent: false)
 
-#chapter("Appendix Chapter Title", image: image("./orange2.jpg"))
+#chapter("Appendix Chapter Title")//, image: image("./orange2.jpg"))
 
 == Appendix Section Title
 
 #lorem(50)
-#chapter("Appendix Chapter Title", image: image("./orange2.jpg"))
+#chapter("Appendix Chapter Title")//, image: image("./orange2.jpg"))
 
 == Appendix Section Title
 
