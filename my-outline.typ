@@ -6,7 +6,8 @@
                     title: none,
                     heading_page: "0",
                     location: none) = {
-  set text(size: textSize, fill: textColor, weight: textWeight, font: "Roboto")
+  //set text(size: textSize, fill: textColor, weight: textWeight, font: "Roboto")
+  set text(size: 8pt, fill: textColor, weight: textWeight, font: "Roboto")
   box(width: 1.1cm, inset: (y: insetSize), align(left, number))
   h(0.1cm)
   box(inset: (y: insetSize), width: 100% - 1.2cm, )[

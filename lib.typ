@@ -92,8 +92,8 @@
     image
   )
 
-  set text(font: "Roboto")
-  if l != none [
+    set text(font: "Roboto")
+      if l != none [
     #heading(level: 1, title) #label(l)
   ] else [
     #heading(level: 1, title)
@@ -432,6 +432,7 @@
       )
     }
     else if it.level == 2 or it.level == 3 or it.level == 4 or it.level == 5{
+    set text(fill: main-color)
       let size
       let space
       let color = main-color

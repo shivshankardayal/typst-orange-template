@@ -1,15 +1,14 @@
 #import "lib.typ": *
 
-//#set text(font: "")
-//#set text(font: "TeX Gyre Pagella")
+#set text(font: "TeX Gyre Schola", size: 9pt)
 //#set text(font: "Lato")
-#show math.equation: set text(font: "STIX Two Math")
+#show math.equation: set text(font: "STIX Math")
 //#show math.equation: set text(font: "Lato Math")
-//#show raw: set text(font: "Fira Code")
+#show raw: set text(font: "Adwaita Mono")
 
 #show: book.with(
-  title: "Exploring the Physical Manifestation of Humanity’s Subconscious Desires",
-  subtitle: "A Practical Guide",
+    title: "Exploring the Physical Manifestation of Humanity’s Subconscious Desires",
+    subtitle: "A Practical Guide",
   date: datetime.today,
   author: "Shiv Shankar Dayal",
   main-color: rgb("#0064B0"),
@@ -119,6 +118,13 @@ imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcor
 #heading(level:3, numbering: none, "Unnumbered Subsection", outlined: false)
 #heading(level:4, numbering: none, "Unnumbered Subsubsection", outlined: false)
 
+```rust
+fn main() {
+    let mut x = 5;
+
+    println!("Hello qworl!");
+}
+```
 // Chapter can also be defined in this way
 #chapter("Sectioning Examples", l: "chap2")
 //#update-heading-image(image: image("./orange2.jpg"))
@@ -169,7 +175,7 @@ kajhg hg ghioeg ohg  gegjewg
 
 wekjkgjkgkg gh ehg heioh foihionjk.dsvnjk kdkv
 
-== Referencing Chapters<heading1>
+== Referencing Chaptercs<heading1>
 #index("Referencing")
 This statement references to another chapter @chap1. This statement references to another heading @heading1. This statement references to another heading @heading2.
 
