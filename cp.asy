@@ -1,10 +1,17 @@
-// cover_page.asy
 import graph;
 import fontsize;
+import settings;
 
-//settings.tex="lualatex";
-settings.outformat="pdf";
+tex="xelatex";
+outformat="pdf";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+// cover_page.asy
 size(17.6cm, 25cm); // Page width fixed, height auto
+texpreamble("\usepackage{fontspec}\usepackage{unicode-math}\setmainfont{TeX Gyre Schola}\setmathfont{TeX Gyre Schola Math}");
 //unitsize(1cm);
 // Page dimensions
 real W = 17.6cm;
@@ -15,12 +22,12 @@ fill((0,0)--(W,0)--(W,H)--(0,H)--cycle, rgb(0.0,0.4,0.6)); // purple
 
 // Title and Author text
 label("Locii of Points in Coordinate Geometry",
-      (0, H/4.5), align=SE, p=white + fontsize(28pt));
+(0, H/4.5), align=SE, p=white + fontsize(24pt));
 draw((0,H/5.6)--(W,H/5.6), white+1.5bp);
 label("A problem-oriented approach",
-      (W-0.58*W, H/5.5), align=SE, p=white + fontsize(20pt));
+(W-0.58*W, H/5.5), align=SE, p=white + fontsize(18pt));
 label(rotate(270)*"Shiv Shankar Dayal",
-      (W-0.1*W, H-0.3*W), align=NE, p=white);
+(W-0.1*W, H-0.3*W), align=NE, p=white);
 
 // Coordinate system
 pair O = (W/2,H/2);
@@ -54,15 +61,14 @@ pen dpen = gray(0.7)+dashed+0.1bp;
 
 // verticals
 for (int k=1; k<=5; ++k) {
-  real ymax = sqrt(36-k^2); // for circle radius 6
-  draw(shift(O)*scale(1cm)*((-k,-ymax)--(-k,ymax)), dpen);
-  draw(shift(O)*scale(1cm)*(( k,-ymax)--( k,ymax)), dpen);
+real ymax = sqrt(36-k^2); // for circle radius 6
+draw(shift(O)*scale(1cm)*((-k,-ymax)--(-k,ymax)), dpen);
+draw(shift(O)*scale(1cm)*(( k,-ymax)--( k,ymax)), dpen);
 }
 
 // horizontals
 for (int k=1; k<=5; ++k) {
-  real xmax = sqrt(36-k^2);
-  draw(shift(O)*scale(1cm)*((-xmax, k)--( xmax, k)), dpen);
-  draw(shift(O)*scale(1cm)*((-xmax,-k)--( xmax,-k)), dpen);
+real xmax = sqrt(36-k^2);
+draw(shift(O)*scale(1cm)*((-xmax, k)--( xmax, k)), dpen);
+draw(shift(O)*scale(1cm)*((-xmax,-k)--( xmax,-k)), dpen);
 }
-

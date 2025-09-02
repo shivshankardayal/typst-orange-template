@@ -1,8 +1,8 @@
 #import "lib.typ": *
 
-#set text(font: "Latin Modern Roman")
-#show math.equation: set text(font: "Latin Modern Math")
-#show raw: set text(font: "Latin Modern Mono")
+#set text(font: "TeX Gyre Schola")
+#show math.equation: set text(font: "TeX Gyre Schola Math")
+#show raw: set text(font: "Adwaita Mono")
 
 #show: book.with(
     title: "Locii of Points in Coordinate Geometry",
@@ -360,10 +360,10 @@ Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi impe
 //#figure(
     //  placement: bottom,
     //  image("creodocs_logo.svg", width: 100%),
-//  caption: [Floating figure.],
-//) <figure1>
+    //  caption: [Floating figure.],
+    //) <figure1>
 
-#my-bibliography( bibliography("sample.bib"))
+    #my-bibliography( bibliography("sample.bib"))
 
 #make-index(title: "Index")
 
