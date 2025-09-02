@@ -2,8 +2,8 @@
 import graph;
 import fontsize;
 
-settings.tex="lualatex";
-settings.outformat="svg";
+//settings.tex="lualatex";
+settings.outformat="pdf";
 size(17.6cm, 25cm); // Page width fixed, height auto
 //unitsize(1cm);
 // Page dimensions
